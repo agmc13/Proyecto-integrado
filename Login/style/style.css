@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'Vibur';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Vibur'), url(../fonts/fuente.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+*{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  font-family:arial;
+}
+body{ background-image: url("../imagenes/fondo.jpg") ;}
+h1{
+  color:#282523;
+  text-align:center;
+  font-family: 'Vibur', cursive;
+  font-size: 50px;
+}
+
+.login-form{
+  width:350px;
+  padding:20px 30px;
+  background:#eee;
+  @include border-radius(4px);
+  margin:auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:10%;
+  @include translateY(-50%);
+}
+.form-group{
+  position: relative;
+  margin-bottom:15px;
+}
+.form-control{
+  width:100%;
+  height:50px;
+  border:none;
+  padding:5px 7px 5px 15px;
+  background:#fff;
+  color:#666;
+  border:2px solid #ddd;
+  @include border-radius(4px);
+    &:focus, &:focus + .fa{
+      border-color:#10CE88;
+      color:#10CE88;
+    }
+}
+.form-group .fa{
+  position: absolute;
+  right:15px;
+  top:17px;
+  color:#999;
+}
+.log-status.wrong-entry {
+ @include animation( wrong-log 0.3s);
+}
+.log-status.wrong-entry .form-control, .wrong-entry .form-control + .fa {
+  border-color: #ed1c24;
+  color: #ed1c24;
+}
+.log-btn{
+  background:#0AC986;
+  dispaly:inline-block;
+  width:100%;
+  font-size:16px;
+  height:50px;
+  color:#fff;
+  text-decoration:none;
+  border:none;
+  @include border-radius(4px);
+}
+
+.link{
+  text-decoration:none;
+  color:#282523;
+  float:right;
+  font-size:12px;
+  margin-bottom:15px;
+  &:hover{
+    text-decoration: underline;
+    color:#8C918F;
+  }
+}
+.alert{
+  display:none;
+  font-size:12px;
+  color:#f00;
+  float:left;
+}
+@include keyframes (wrong-log) {
+  0%, 100% { left: 0px;}
+  20% , 60%{left: 15px;}
+  40% , 80%{left: -15px;}
+}
